@@ -30,23 +30,15 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView textView;
-    EditText inputText;
-
     // onCreate method is called when the activity is first created
     // entry point for the activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         // enables the display to draw behind bars
         EdgeToEdge.enable(this);
-
         // sets the content view layout defined in activity_main.xml
-        setContentView(R.layout.activity_main);
-
-        textView = (TextView) findViewById(R.id.textView);
-        inputText = (EditText) findViewById(R.id.inputText);
+      setContentView(R.layout.activity_main);
 
         // insets the view with ID 'main'
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -60,10 +52,5 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void updateText(View view){
-        textView.setText(" Hello There " + inputText.getText( ));
-        System.out.println("Button clicked");
-
-    }
 
 }

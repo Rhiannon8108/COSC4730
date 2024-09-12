@@ -8,52 +8,11 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="What is your name?"
-        android:textSize="32sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.098" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="278dp"
-        android:layout_height="49dp"
-        android:layout_marginLeft="24dp"
-
-        android:layout_marginRight="24dp"
-
-        android:background="@drawable/button_bg"
-        android:onClick="updateText"
-        android:text="Say Hi"
-        android:textColor="#ede7f6"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.424"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.863" />
-
-    <EditText
-        android:id="@+id/inputText"
-        android:hint= "Enter your name."
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:text=""
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textSize="25sp"
-        />
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/hello_world_frag"
+        android:name="com.HelloWordPlus.program01_cosc4730_kilduff.HelloWorldFrag"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 
 
