@@ -1,7 +1,6 @@
 package com.HelloWordPlus.program01_cosc4730_kilduff;
 
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,11 +16,13 @@ import android.util.Log;
 import com.HelloWordPlus.program01_cosc4730_kilduff.databinding.FragmentHelloWorldBinding;
 
 public class HelloWorldFrag extends Fragment implements Button.OnClickListener{
+    //Tag for logging
     String TAG = "FragmentLog";
 
+    //declare binding and listener
     private FragmentHelloWorldBinding binding;
     private FragmentHelloWorldBindingListener listener;
-
+    // Interface for communicating with the activity
     public interface FragmentHelloWorldBindingListener {
         void OnTextLogged(String text);
     }
@@ -30,26 +31,35 @@ public class HelloWorldFrag extends Fragment implements Button.OnClickListener{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        //Inflate using data binding
         binding = FragmentHelloWorldBinding.inflate(inflater, container, false);
-        binding.button_hi.setOnClickListener(this);
-        binding.hello_text.setText(" What is your name? ");
+        //Set listener for the button click
+        binding.buttonHi.setOnClickListener(this);
+        //set the initial text
+        binding.helloText.setText(" What is your name? ");
 
         return binding.getRoot();
     }
 
     public void onClick(View view) {
-        if (view == binding.button_hi) {
-            String input_field = binding.user_input.getText().toString();
+        //Checks if the clicked via if buttonHi
+        if (view == binding.buttonHi) {
+            //get get from the input field
+            String input_field = binding.userInput.getText().toString();
+            // if the input field is not empty
             if (input_field.compareTo("") != 0) {
-                binding.hello_text.setText(" Hello There " + input_field.getText());
+                binding.helloText.setText(" Hello There " + input_field);
                 System.out.println("Button clicked");
             } else {
-                binding.hello_text.setText(" Hello Nobody ");
+                //if no input set text
+                binding.helloText.setText(" Hello Nobody ");
 
             }
-            Log.v(TAG, "name set: " + user_input);
+            // log the value entered into the input field
+            Log.v(TAG, "name set: " + input_field);
+            //if value is not null notify listener
             if (listener != null) {
-                listener.OnTextLogged(user_input);
+                listener.OnTextLogged(input_field);
             }
         }
     }
@@ -76,7 +86,7 @@ public class HelloWorldFrag extends Fragment implements Button.OnClickListener{
     @Override
     public void onDetach () {
         super.onDetach();
-        mListener = null;
+        listener = null;
     }
 
 }
