@@ -6,18 +6,25 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
+
 import com.HelloWordPlus.program01_cosc4730_kilduff.databinding.FragmentHelloWorldBinding;
 
-public class HelloWorldFrag extends Fragment {
+public class HelloWorldFrag extends Fragment implements Button.OnClickListener{
     String TAG = "FragmentLog";
 
     private FragmentHelloWorldBinding binding;
-    private FragmentHelloWorldBindingListener01 mListener;
+    private FragmentHelloWorldBindingListener listener;
+
+    public interface FragmentHelloWorldBindingListener {
+        void OnTextLogged(String text);
+    }
 
 
     @Override
@@ -46,6 +53,8 @@ public class HelloWorldFrag extends Fragment {
             }
         }
     }
+
+    //Copied from GitHub examples
     @Override
     public void onDestroyView () {
         super.onDestroyView();
