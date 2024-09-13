@@ -11,10 +11,9 @@
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/hello_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="What is your name?"
         android:textSize="32sp"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -43,7 +42,7 @@
         app:layout_constraintVertical_bias="0.863" />
 
     <EditText
-        android:id="@+id/inputText"
+        android:id="@+id/user_input"
         android:hint= "Enter your name."
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

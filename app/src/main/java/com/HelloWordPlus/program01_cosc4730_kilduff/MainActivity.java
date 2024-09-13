@@ -25,20 +25,22 @@ import androidx.core.view.ViewCompat;
 
 import androidx.core.view.WindowInsetsCompat;
 // Provides a backwards compatible way to handle window insets
-    // ex. areas occupied by system bars
+
+import com.HelloWordPlus.program01_cosc4730_kilduff.HelloWorldFragBinding;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements HelloWOrldFragBinding.HelloWOrldFragBindingListener01 {
+    private ActivityMainBinding binding;
 
-    // onCreate method is called when the activity is first created
-    // entry point for the activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
         // enables the display to draw behind bars
         EdgeToEdge.enable(this);
-        // sets the content view layout defined in activity_main.xml
-      setContentView(R.layout.activity_main);
+
 
         // insets the view with ID 'main'
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
